@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Website — Index & Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">dani </div>
+      <nav class="main-nav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#dashboard">Dashboard</a>
+      </nav>
+    </header>
+
+    <main class="layout">
+      <section id="home" class="panel">
+        <h1>Selamat datang di situs saya</h1>
+        <p>Contoh halaman index sederhana. Gunakan tombol di bawah untuk membuka dashboard.</p>
+        <div class="actions">
+          <a class="btn" href="#dashboard">Buka Dashboard (-scroll)</a>
+          <button id="open-dashboard" class="btn outline">Buka Dashboard di panel</button>
+        </div>
+      </section>
+
+      <section id="about" class="panel">
+        <h2>Tentang</h2>
+        <p>Ini contoh layout sederhana: header, konten, dan area dashboard.</p>
+      </section>
+
+      <section id="dashboard" class="panel">
+        <h2>Dashboard</h2>
+        <p>Dashboard dimuat di bawah. Untuk preview lokal tanpa server, gunakan metode <em>iframe</em> (otomatis).</p>
+
+        <!-- Cara paling mudah: iframe yang memuat file dashboard.html --->
+        <div class="dashboard-frame">
+          <iframe src="dashboard.html" title="Dashboard" id="dashboard-iframe"></iframe>
+        </div>
+
+        <!-- Tombol alternatif: jika kamu menjalankan lewat server (http://), script akan fetch dashboard.html dan masukkan ke div -->
+        <div id="dashboard-inline" class="dashboard-inline" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2025 — Dibuat dengan ♥</p>
+    </footer>
+
+    <script>
+      // Tombol untuk scroll ke dashboard
+      document.getElementById('open-dashboard').addEventListener('click', function () {
+        document.getElementById('dashboard').scrollIntoView({ behavior: 'smooth' });
+      });
+
+      // Jika halaman dilayani lewat HTTP(S) (bukan file://), kita coba fetch dan tampilkan inline
+      (function tryLoadDashboardInline() {
+        // Cek apakah fetch dari file sistem diizinkan — biasanya tidak saat buka langsung dari file://
+        if (location.protocol === 'http:' || location.protocol === 'https:') {
+          fetch('dashboard.html')
+            .then(function (r) {
+              if (!r.ok) throw new Error('gagal mengambil dashboard');
+              return r.text();
+            })
+            .then(function (html) {
+              var container = document.getElementById('dashboard-inline');
+              container.innerHTML = html;
+              // sembunyikan iframe kalau inline berhasil
+              document.getElementById('dashboard-iframe').style.display = 'none';
+            })
+            .catch(function () {
+              // biarkan iframe tetap terlihat
+            });
+        }
+      })();
+    </script>
+  </body>
+</html>
