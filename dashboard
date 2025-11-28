@@ -1,0 +1,38 @@
+<!-- Dashboard sederhana: simpan sebagai file terpisah bernama dashboard.html di folder yang sama -->
+<div class="dashboard-root">
+  <style>
+    .dash-wrap { padding: 1rem; font-family: inherit; }
+    .dash-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .card { background: #0f172a; color: #fff; padding: 1rem; border-radius: 10px; }
+    .card h3 { font-size: 1.05rem; margin-bottom: 0.25rem; }
+    .card p { font-size: 1.4rem; font-weight: 700; margin-top: 0.25rem; }
+    @media (max-width: 800px) { .dash-cards { grid-template-columns: repeat(1, 1fr); } }
+  </style>
+
+  <div class="dash-wrap">
+    <h3>Ringkasan</h3>
+    <div class="dash-cards">
+      <div class="card">
+        <div class="label">Pengguna Aktif</div>
+        <p>1,248</p>
+      </div>
+      <div class="card">
+        <div class="label">Kunjungan Hari Ini</div>
+        <p>3,421</p>
+      </div>
+      <div class="card">
+        <div class="label">Konversi</div>
+        <p>7.2%</p>
+      </div>
+    </div>
+
+    <section style="margin-top:1rem;">
+      <h4>Logs Terbaru</h4>
+      <ul>
+        <li>2025-10-02 12:12 — Pengguna baru terdaftar: ahmad</li>
+        <li>2025-10-02 11:43 — Pembayaran berhasil: INV-00123</li>
+        <li>2025-10-01 19:20 — Backup otomatis selesai</li>
+      </ul>
+    </section>
+  </div>
+</div>
