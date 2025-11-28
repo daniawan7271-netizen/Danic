@@ -1,0 +1,32 @@
+/* Reset ringan */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background: #f5f7fb; color: #1f2937; }
+
+.site-header {
+  display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; background: #0f172a; color: #fff;
+}
+.site-header .brand { font-weight: 700; font-size: 1.1rem; }
+.main-nav a { color: rgba(255,255,255,0.85); text-decoration: none; margin-left: 1rem; font-size: 0.95rem; }
+
+.layout { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
+.panel { background: #fff; border-radius: 12px; padding: 1.25rem; box-shadow: 0 6px 18px rgba(12,15,20,0.06); margin-bottom: 1rem; }
+
+.actions { margin-top: 1rem; }
+.btn { display: inline-block; padding: 0.55rem 0.9rem; border-radius: 8px; background: #0ea5a4; color: white; text-decoration: none; font-weight: 600; }
+.btn.outline { background: transparent; border: 1px solid #0ea5a4; color: #0f172a; margin-left: 0.5rem; }
+
+.site-footer { text-align: center; padding: 1rem; color: #6b7280; font-size: 0.9rem; }
+
+/* Dashboard iframe/styling */
+.dashboard-frame { margin-top: 0.75rem; border-radius: 8px; overflow: hidden; border: 1px solid #e6eef5; }
+.dashboard-frame iframe { width: 100%; height: 520px; border: 0; display: block; }
+.dashboard-inline { margin-top: 0.75rem; }
+
+/* Responsive */
+@media (max-width: 640px) {
+  .main-nav { display: none; }
+  .layout { margin: 1rem; }
+  .dashboard-frame iframe { height: 420px; }
+}
+
+                          
